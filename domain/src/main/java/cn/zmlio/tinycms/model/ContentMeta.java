@@ -22,10 +22,10 @@ public class ContentMeta {
     @JoinColumn(name = "author_id")
     private User author;//作者
 
-    @Column(name = "author_state")
+    @Column(name = "audit_state")
     private int auditState;//审核状态
 
-    @Column(name = "author_time")
+    @Column(name = "audit_time")
     private Date auditTime;//审核时间
 
     private int source;//文章来源
@@ -37,6 +37,9 @@ public class ContentMeta {
     private int favour;//赞成数
 
     private int opponent;//反对数
+
+    @OneToOne(mappedBy = "meta", cascade = CascadeType.MERGE)
+    private Article article;
 
     public Integer getMetaId() {
         return metaId;
@@ -116,5 +119,13 @@ public class ContentMeta {
 
     public void setOpponent(int opponent) {
         this.opponent = opponent;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
     }
 }
