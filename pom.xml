@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>domain</module>
-        <module>commons</module>
-        <module>dao</module>
+        <module>cms-domain</module>
+        <module>cms-commons</module>
+        <module>cms-dao</module>
     </modules>
     <properties>
         <!-- 文件拷贝时的编码 -->
