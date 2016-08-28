@@ -3,38 +3,41 @@ package cn.zmlio.tinycms.dao.impl;
 import cn.zmlio.tinycms.dao.IBaseDao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
  * Created by zhangmanliang on 2016/8/22.
  */
-public class BaseDao extends HibernateDaoSupport implements IBaseDao{
+@Repository("baseDao")
+public class BaseDao extends HibernateDaoSupport implements IBaseDao {
 
     @Resource
-    public void setHibernateTemplete2(HibernateTemplate hibernateTemplete){
+    public void setHibernateTemplete2(HibernateTemplate hibernateTemplete) {
         super.setHibernateTemplate(hibernateTemplete);
     }
 
-    protected Class getMethodGenericType(String method){
+    protected Class getMethodGenericType(String method) {
         try {
-            Method currentMethod= this.getClass().getMethod(method);
+            Method currentMethod = this.getClass().getMethod(method);
 
-            Type type= currentMethod.getGenericReturnType();
+            Type type = currentMethod.getGenericReturnType();
 
             return Class.forName(type.getTypeName());
 
@@ -49,7 +52,7 @@ public class BaseDao extends HibernateDaoSupport implements IBaseDao{
 
     @Override
     public <T> T get(Class<T> tClass, Serializable id) {
-        return getHibernateTemplate().get(tClass,id);
+        return getHibernateTemplate().get(tClass, id);
     }
 
     @Override
@@ -149,10 +152,9 @@ public class BaseDao extends HibernateDaoSupport implements IBaseDao{
     public <T> Page<T> listByPage(Class<T> tClass, String[] properties, Object[] values, Pageable pageable) {
 
         Criteria criteria = prepareCriteria(tClass, properties, values);
-        return listByPage(criteria,pageable);
+        return listByPage(criteria, pageable);
 
     }
-
 
 
     @Override
@@ -181,16 +183,16 @@ public class BaseDao extends HibernateDaoSupport implements IBaseDao{
 
     }
 
-    private   Criteria prepareCriteria(Class tClass,  String[] properties, Object[] values){
-        Map<String,Object> params=new HashMap();
-        if(properties!=null && values!=null){
-            for(int i=0;i<properties.length;i++){
-                if(i<values.length){
-                    params.put(properties[i],values[i]);
+    private Criteria prepareCriteria(Class tClass, String[] properties, Object[] values) {
+        Map<String, Object> params = new HashMap();
+        if (properties != null && values != null) {
+            for (int i = 0; i < properties.length; i++) {
+                if (i < values.length) {
+                    params.put(properties[i], values[i]);
                 }
             }
         }
-        return  prepareCriteria(tClass, params);
+        return prepareCriteria(tClass, params);
     }
 
     private Criteria prepareCriteria(Class tClass, Map<String, Object> params) {
@@ -200,7 +202,7 @@ public class BaseDao extends HibernateDaoSupport implements IBaseDao{
         criteria.setCacheable(true);
         if (criteria != null) {
             if (params != null) {
-                for(Map.Entry<String, Object> entry : params.entrySet()) {
+                for (Map.Entry<String, Object> entry : params.entrySet()) {
                     criteria.add(Restrictions.eqOrIsNull(entry.getKey(), entry.getValue()));
                 }
             }

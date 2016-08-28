@@ -1,40 +1,40 @@
-<?xml version='1.0' encoding='gb2312'?>
-<!--±íÃ÷½âÎö±¾XMLÎÄ¼þµÄDTDÎÄµµÎ»ÖÃ£¬DTDÊÇDocument Type Definition µÄËõÐ´,¼´ÎÄµµÀàÐÍµÄ¶¨Òå,XML½âÎöÆ÷Ê¹ÓÃDTDÎÄµµÀ´¼ì²éXMLÎÄ¼þµÄºÏ·¨ÐÔ¡£hibernate.sourceforge.net/hibernate-configuration-3.0dtd¿ÉÒÔÔÚHibernate3.1.3Èí¼þ°üÖÐµÄsrc\org\hibernateÄ¿Â¼ÖÐÕÒµ½´ËÎÄ¼þ-->
+<?xml version='1.0' encoding='utf-8'?>
+<!--è¡¨æ˜Žè§£æžæœ¬XMLæ–‡ä»¶çš„DTDæ–‡æ¡£ä½ç½®ï¼ŒDTDæ˜¯Document Type Definition çš„ç¼©å†™,å³æ–‡æ¡£ç±»åž‹çš„å®šä¹‰,XMLè§£æžå™¨ä½¿ç”¨DTDæ–‡æ¡£æ¥æ£€æŸ¥XMLæ–‡ä»¶çš„åˆæ³•æ€§ã€‚hibernate.sourceforge.net/hibernate-configuration-3.0dtdå¯ä»¥åœ¨Hibernate3.1.3è½¯ä»¶åŒ…ä¸­çš„src\org\hibernateç›®å½•ä¸­æ‰¾åˆ°æ­¤æ–‡ä»¶-->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         " http://www.hibernate.org/dtd/hibernate-configuration/hibernate-configuration-3.0.dtd">
-<!--ÉùÃ÷HibernateÅäÖÃÎÄ¼þµÄ¿ªÊ¼-->
+<!--å£°æ˜ŽHibernateé…ç½®æ–‡ä»¶çš„å¼€å§‹-->
 <hibernate-configuration>
-    <!--±íÃ÷ÒÔÏÂµÄÅäÖÃÊÇÕë¶Ôsession-factoryÅäÖÃµÄ£¬SessionFactoryÊÇHibernateÖÐµÄÒ»¸öÀà£¬Õâ¸öÀàÖ÷Òª¸ºÔð±£´æHIbernateµÄÅäÖÃÐÅÏ¢£¬ÒÔ¼°¶ÔSessionµÄ²Ù×÷-->
+    <!--è¡¨æ˜Žä»¥ä¸‹çš„é…ç½®æ˜¯é’ˆå¯¹session-factoryé…ç½®çš„ï¼ŒSessionFactoryæ˜¯Hibernateä¸­çš„ä¸€ä¸ªç±»ï¼Œè¿™ä¸ªç±»ä¸»è¦è´Ÿè´£ä¿å­˜HIbernateçš„é…ç½®ä¿¡æ¯ï¼Œä»¥åŠå¯¹Sessionçš„æ“ä½œ-->
     <session-factory>
-        <!--ÅäÖÃÊý¾Ý¿âµÄÇý¶¯³ÌÐò£¬HibernateÔÚÁ¬½ÓÊý¾Ý¿âÊ±£¬ÐèÒªÓÃµ½Êý¾Ý¿âµÄÇý¶¯³ÌÐò-->
+        <!--é…ç½®æ•°æ®åº“çš„é©±åŠ¨ç¨‹åºï¼ŒHibernateåœ¨è¿žæŽ¥æ•°æ®åº“æ—¶ï¼Œéœ€è¦ç”¨åˆ°æ•°æ®åº“çš„é©±åŠ¨ç¨‹åº-->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <!--ÉèÖÃÊý¾Ý¿âµÄÁ¬½Óurl:jdbc:mysql://localhost/hibernate,ÆäÖÐlocalhost±íÊ¾mysql·þÎñÆ÷Ãû³Æ£¬´Ë´¦Îª±¾»ú£¬    hibernateÊÇÊý¾Ý¿âÃû-->
+        <!--è®¾ç½®æ•°æ®åº“çš„è¿žæŽ¥url:jdbc:mysql://localhost/hibernate,å…¶ä¸­localhostè¡¨ç¤ºmysqlæœåŠ¡å™¨åç§°ï¼Œæ­¤å¤„ä¸ºæœ¬æœºï¼Œ    hibernateæ˜¯æ•°æ®åº“å-->
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tinycms</property>
-        <!--Á¬½ÓÊý¾Ý¿âÊÇÓÃ»§Ãû-->
+        <!--è¿žæŽ¥æ•°æ®åº“æ˜¯ç”¨æˆ·å-->
         <property name="hibernate.connection.username">root</property>
-        <!--Á¬½ÓÊý¾Ý¿âÊÇÃÜÂë-->
+        <!--è¿žæŽ¥æ•°æ®åº“æ˜¯å¯†ç -->
         <property name="hibernate.connection.password">mysql</property>
-        <!--Êý¾Ý¿âÁ¬½Ó³ØµÄ´óÐ¡-->
+        <!--æ•°æ®åº“è¿žæŽ¥æ± çš„å¤§å°-->
         <property name="hibernate.connection.pool.size">20</property>
-        <!--ÊÇ·ñÔÚºóÌ¨ÏÔÊ¾HibernateÓÃµ½µÄSQLÓï¾ä£¬¿ª·¢Ê±ÉèÖÃÎªtrue£¬±ãÓÚ²î´í£¬³ÌÐòÔËÐÐÊ±¿ÉÒÔÔÚEclipseµÄ¿ØÖÆÌ¨ÏÔÊ¾HibernateµÄÖ´ÐÐSqlÓï¾ä¡£ÏîÄ¿²¿Êðºó¿ÉÒÔÉèÖÃÎªfalse£¬Ìá¸ßÔËÐÐÐ§ÂÊ-->
+        <!--æ˜¯å¦åœ¨åŽå°æ˜¾ç¤ºHibernateç”¨åˆ°çš„SQLè¯­å¥ï¼Œå¼€å‘æ—¶è®¾ç½®ä¸ºtrueï¼Œä¾¿äºŽå·®é”™ï¼Œç¨‹åºè¿è¡Œæ—¶å¯ä»¥åœ¨Eclipseçš„æŽ§åˆ¶å°æ˜¾ç¤ºHibernateçš„æ‰§è¡ŒSqlè¯­å¥ã€‚é¡¹ç›®éƒ¨ç½²åŽå¯ä»¥è®¾ç½®ä¸ºfalseï¼Œæé«˜è¿è¡Œæ•ˆçŽ‡-->
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <!--jdbc.fetch_sizeÊÇÖ¸HibernateÃ¿´Î´ÓÊý¾Ý¿âÖÐÈ¡³ö²¢·Åµ½JDBCµÄStatementÖÐµÄ¼ÇÂ¼ÌõÊý¡£Fetch SizeÉèµÄÔ½´ó£¬¶ÁÊý¾Ý¿âµÄ´ÎÊýÔ½ÉÙ£¬ËÙ¶ÈÔ½¿ì£¬Fetch SizeÔ½Ð¡£¬¶ÁÊý¾Ý¿âµÄ´ÎÊýÔ½¶à£¬ËÙ¶ÈÔ½Âý-->
+        <!--jdbc.fetch_sizeæ˜¯æŒ‡Hibernateæ¯æ¬¡ä»Žæ•°æ®åº“ä¸­å–å‡ºå¹¶æ”¾åˆ°JDBCçš„Statementä¸­çš„è®°å½•æ¡æ•°ã€‚Fetch Sizeè®¾çš„è¶Šå¤§ï¼Œè¯»æ•°æ®åº“çš„æ¬¡æ•°è¶Šå°‘ï¼Œé€Ÿåº¦è¶Šå¿«ï¼ŒFetch Sizeè¶Šå°ï¼Œè¯»æ•°æ®åº“çš„æ¬¡æ•°è¶Šå¤šï¼Œé€Ÿåº¦è¶Šæ…¢-->
         <property name="jdbc.fetch_size">50</property>
-        <!--jdbc.batch_sizeÊÇÖ¸HibernateÅúÁ¿²åÈë,É¾³ýºÍ¸üÐÂÊ±Ã¿´Î²Ù×÷µÄ¼ÇÂ¼Êý¡£Batch SizeÔ½´ó£¬ÅúÁ¿²Ù×÷µÄÏòÊý¾Ý¿â·¢ËÍSqlµÄ´ÎÊýÔ½ÉÙ£¬ËÙ¶È¾ÍÔ½¿ì£¬Í¬ÑùºÄÓÃÄÚ´æ¾ÍÔ½´ó-->
+        <!--jdbc.batch_sizeæ˜¯æŒ‡Hibernateæ‰¹é‡æ’å…¥,åˆ é™¤å’Œæ›´æ–°æ—¶æ¯æ¬¡æ“ä½œçš„è®°å½•æ•°ã€‚Batch Sizeè¶Šå¤§ï¼Œæ‰¹é‡æ“ä½œçš„å‘æ•°æ®åº“å‘é€Sqlçš„æ¬¡æ•°è¶Šå°‘ï¼Œé€Ÿåº¦å°±è¶Šå¿«ï¼ŒåŒæ ·è€—ç”¨å†…å­˜å°±è¶Šå¤§-->
         <property name="jdbc.batch_size">23</property>
-        <!--jdbc.use_scrollable_resultsetÊÇ·ñÔÊÐíHibernateÓÃJDBCµÄ¿É¹ö¶¯µÄ½á¹û¼¯¡£¶Ô·ÖÒ³µÄ½á¹û¼¯¡£¶Ô·ÖÒ³Ê±µÄÉèÖÃ·Ç³£ÓÐ°ïÖú-->
+        <!--jdbc.use_scrollable_resultsetæ˜¯å¦å…è®¸Hibernateç”¨JDBCçš„å¯æ»šåŠ¨çš„ç»“æžœé›†ã€‚å¯¹åˆ†é¡µçš„ç»“æžœé›†ã€‚å¯¹åˆ†é¡µæ—¶çš„è®¾ç½®éžå¸¸æœ‰å¸®åŠ©-->
         <property name="jdbc.use_scrollable_resultset">false</property>
-        <!--connection.useUnicodeÁ¬½ÓÊý¾Ý¿âÊ±ÊÇ·ñÊ¹ÓÃUnicode±àÂë-->
+        <!--connection.useUnicodeè¿žæŽ¥æ•°æ®åº“æ—¶æ˜¯å¦ä½¿ç”¨Unicodeç¼–ç -->
         <property name="Connection.useUnicode">true</property>
-        <!--connection.characterEncodingÁ¬½ÓÊý¾Ý¿âÊ±Êý¾ÝµÄ´«Êä×Ö·û¼¯±àÂë·½Ê½£¬×îºÃÉèÖÃÎªgbk£¬ÓÃgb2312ÓÐµÄ×Ö·û²»È«-->
+        <!--connection.characterEncodingè¿žæŽ¥æ•°æ®åº“æ—¶æ•°æ®çš„ä¼ è¾“å­—ç¬¦é›†ç¼–ç æ–¹å¼ï¼Œæœ€å¥½è®¾ç½®ä¸ºgbkï¼Œç”¨gb2312æœ‰çš„å­—ç¬¦ä¸å…¨-->
         <property name="connection.characterEncoding">utf8</property>
 
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <!--hibernate.dialect Ö»ÊÇHibernateÊ¹ÓÃµÄÊý¾Ý¿â·½ÑÔ,¾ÍÊÇÒªÓÃHibernateÁ¬½ÓÄÇÖÖÀàÐÍµÄÊý¾Ý¿â·þÎñÆ÷¡£-->
+        <!--hibernate.dialect åªæ˜¯Hibernateä½¿ç”¨çš„æ•°æ®åº“æ–¹è¨€,å°±æ˜¯è¦ç”¨Hibernateè¿žæŽ¥é‚£ç§ç±»åž‹çš„æ•°æ®åº“æœåŠ¡å™¨ã€‚-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
-        <!--Ö¸¶¨Ó³ÉäÎÄ¼þÎª¡°hibernate/ch1/UserInfo.hbm.xml¡±-->
+        <!--æŒ‡å®šæ˜ å°„æ–‡ä»¶ä¸ºâ€œhibernate/ch1/UserInfo.hbm.xmlâ€-->
 
         <mapping class="cn.zmlio.tinycms.model.ContentCategory"/>
         <mapping class="cn.zmlio.tinycms.model.ContentMeta"/>
@@ -42,5 +42,9 @@
         <mapping class="cn.zmlio.tinycms.model.ContentKeyword"/>
         <mapping class="cn.zmlio.tinycms.model.User"/>
         <mapping class="cn.zmlio.tinycms.model.Article"/>
+        <mapping class="cn.zmlio.tinycms.model.WebSite"/>
+        <mapping class="cn.zmlio.tinycms.model.Attachment"/>
+
+
     </session-factory>
 </hibernate-configuration>

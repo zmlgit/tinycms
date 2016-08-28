@@ -11,6 +11,7 @@
         <module>cms-domain</module>
         <module>cms-commons</module>
         <module>cms-dao</module>
+        <module>cms-service</module>
     </modules>
     <properties>
         <!-- 文件拷贝时的编码 -->
