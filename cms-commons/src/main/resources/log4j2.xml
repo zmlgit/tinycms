@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<configuration status="OFF">
-    <appenders>
+<!--configuration
+    status : TRACE,DEBUG,INFO,WARN,ERROR,OFF log4j2 本身的日志级别，如果把status改为TRACE再执行测试代码，
+    可以看到控制台中打印了一些log4j加载插件、组装logger等调试信息。
+    monitorInterval: 自动重新加载配置文件的间隔
+-->
+<configuration status="OFF" monitorInterval="3000">
+    <Properties>
+        <Property name="BASE_PATH">F:/logs/tinycms</Property>
+    </Properties>
+
+    <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="all" ></File>
-    </appenders>
+        <RollingFile name="system" fileName="${BASE_PATH}/logs-all.log"
+                     filePattern="${BASE_PATH}/logs-all-%d{MM-dd-yyyy}.log"
+                     ignoreExceptions="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+
+        <RollingFile name="biz.trace" fileName="${BASE_PATH}/logs-biz-all.log"
+                     filePattern="${BASE_PATH}/logs-biz-all-%d{MM-dd-yyyy}.log"
+                     ignoreExceptions="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+        <RollingFile name="biz.info" fileName="${BASE_PATH}/logs-biz-info.log"
+                     filePattern="${BASE_PATH}/logs-biz-info-%d{MM-dd-yyyy}.log"
+                     ignoreExceptions="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <TimeBasedTriggeringPolicy/>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+        <RollingFile name="biz.warn" fileName="${BASE_PATH}/logs-biz-warn.log"
+                     filePattern="${BASE_PATH}/logs-biz-warn-%d{MM-dd-yyyy}.log"
+                     ignoreExceptions="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <TimeBasedTriggeringPolicy/>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+        <Async name="Async">
+            <AppenderRef ref="system"/>
+        </Async>
+
+    </Appenders>
     <loggers>
+        <logger name="cn.zmlio.tinycms" level="trace" additivity="false">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="biz.trace"/>
+            <appender-ref ref="biz.info"/>
+            <appender-ref ref="biz.warn"/>
+        </logger>
         <root level="info">
             <appender-ref ref="Console"/>
+            <appender-ref ref="Async"/>
         </root>
     </loggers>
 </configuration>
