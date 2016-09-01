@@ -2,6 +2,7 @@ package cn.zmlio.tinycms.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by zhangmanliang on 2016/8/22.
@@ -11,9 +12,8 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Integer userId;
+    @Column(name = "user_id",length = 40)
+    private String userId= UUID.randomUUID().toString().toUpperCase();
 
     @Column(name = "username")
     private String username;
@@ -36,11 +36,11 @@ public class User {
     @Column(name = "display_name")
     private String displayName;
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

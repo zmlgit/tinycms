@@ -38,7 +38,6 @@
 
         <mapping class="cn.zmlio.tinycms.model.ContentCategory"/>
         <mapping class="cn.zmlio.tinycms.model.ContentMeta"/>
-        <mapping class="cn.zmlio.tinycms.model.ContentChannel"/>
         <mapping class="cn.zmlio.tinycms.model.ContentKeyword"/>
         <mapping class="cn.zmlio.tinycms.model.User"/>
         <mapping class="cn.zmlio.tinycms.model.Article"/>

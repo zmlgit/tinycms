@@ -5,16 +5,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 
 /**
  * Created by ZML on 2016/8/28.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath*:applicationContext.xml")
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.NONE)
 public class IBasicServiceTest {
 
     @Autowired
@@ -22,7 +24,9 @@ public class IBasicServiceTest {
 
     @Test
     public void get() throws Exception {
-        basicService.get(User.class,0);
+        User user=new User();
+        user.setUsername("Hello");
+        basicService.save(user);
     }
 
     @Test

@@ -2,6 +2,7 @@ package cn.zmlio.tinycms.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by zhangmanliang on 2016/8/22.
@@ -11,9 +12,8 @@ import java.util.Date;
 public class ContentMeta {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "meta_id")
-    private Integer metaId;
+    @Column(name = "meta_id",length = 40)
+    private String metaId= UUID.randomUUID().toString().toUpperCase();
 
     @Column(name = "create_time")
     private Date createTime;
@@ -41,11 +41,11 @@ public class ContentMeta {
     @OneToOne(mappedBy = "meta", cascade = CascadeType.MERGE)
     private Article article;
 
-    public Integer getMetaId() {
+    public String getMetaId() {
         return metaId;
     }
 
-    public void setMetaId(Integer metaId) {
+    public void setMetaId(String metaId) {
         this.metaId = metaId;
     }
 

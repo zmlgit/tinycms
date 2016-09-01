@@ -1,6 +1,7 @@
 package cn.zmlio.tinycms.model;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 /**
  * Created by zhangmanliang on 2016/8/22.
@@ -10,23 +11,23 @@ import javax.persistence.*;
 public class Article {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "article_id")
-    private Integer articleId;
+    @Column(name = "article_id",length = 40)
+    private String articleId= UUID.randomUUID().toString().toUpperCase();
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "meta_id")
+
     private ContentMeta meta;
 
     @Column(name = "content")
     @Lob
     private String content;//文章具体内容
 
-    public Integer getArticleId() {
+    public String getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Integer articleId) {
+    public void setArticleId(String articleId) {
         this.articleId = articleId;
     }
 

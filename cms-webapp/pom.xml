@@ -26,6 +26,11 @@
             <artifactId>cms-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cn.zmlio.tinycms</groupId>
+            <artifactId>cms-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>cms-webapp</finalName>

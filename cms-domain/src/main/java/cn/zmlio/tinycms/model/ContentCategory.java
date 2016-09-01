@@ -2,6 +2,7 @@ package cn.zmlio.tinycms.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by zhangmanliang on 2016/8/22.
@@ -11,9 +12,8 @@ import java.util.List;
 public class ContentCategory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
-    private Integer categoryId;
+    @Column(name = "category_id",length = 40)
+    private String categoryId= UUID.randomUUID().toString().toUpperCase();
 
     @Column(name = "category_name")
     private String categoryName;
@@ -28,12 +28,11 @@ public class ContentCategory {
     @Column(name = "category_code",length = 32)
     private String categoryCode;
 
-
-    public Integer getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 

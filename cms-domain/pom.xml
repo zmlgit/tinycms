@@ -11,6 +11,18 @@
 
     <artifactId>cms-domain</artifactId>
     <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
 </project>

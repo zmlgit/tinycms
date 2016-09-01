@@ -3,6 +3,7 @@ package cn.zmlio.tinycms.model;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by ZML on 2016/8/28.
@@ -12,8 +13,8 @@ import java.util.List;
 public class Attachment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer attachId;//附件ID
+    @Column(length = 40)
+    private String attachId= UUID.randomUUID().toString().toUpperCase();//附件ID
 
     @Column(name = "server_path")
     private String serverPath;//文件储存路径
@@ -33,11 +34,11 @@ public class Attachment {
     @Column(name = "serve_url")
     private String serveUrl;//外部可以访问到的url
 
-    public int getAttachId() {
+    public String getAttachId() {
         return attachId;
     }
 
-    public void setAttachId(int attachId) {
+    public void setAttachId(String attachId) {
         this.attachId = attachId;
     }
 

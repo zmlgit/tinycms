@@ -5,6 +5,8 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -28,9 +30,12 @@ import java.util.Map;
 @Repository("baseDao")
 public class BaseDao extends HibernateDaoSupport implements IBaseDao {
 
+    private static Logger logger = LoggerFactory.getLogger(BaseDao.class);
+
     @Resource
-    public void setHibernateTemplete2(HibernateTemplate hibernateTemplete) {
-        super.setHibernateTemplate(hibernateTemplete);
+    public void setHibernateTemplate2(HibernateTemplate hibernateTemplate) {
+        logger.trace("hibernateTemplate setting :" + hibernateTemplate);
+        super.setHibernateTemplate(hibernateTemplate);
     }
 
     protected Class getMethodGenericType(String method) {
@@ -42,9 +47,9 @@ public class BaseDao extends HibernateDaoSupport implements IBaseDao {
             return Class.forName(type.getTypeName());
 
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            logger.error(e.getLocalizedMessage(), e);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getLocalizedMessage(), e);
         }
         return null;
     }

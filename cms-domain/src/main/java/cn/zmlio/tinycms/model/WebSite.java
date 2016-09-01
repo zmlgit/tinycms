@@ -1,6 +1,10 @@
 package cn.zmlio.tinycms.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.UUID;
 
 /**
  * Created by ZML on 2016/8/28.
@@ -10,27 +14,27 @@ import javax.persistence.*;
 public class WebSite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer siteId;
+    @Column(length = 40)
+    private String siteId = UUID.randomUUID().toString().toUpperCase();
 
     @Column(unique = true)
     private String domain;
 
-    @Column(unique = true,name = "index_url")
+    @Column(unique = true, name = "index_url")
     private String indexUrl;
 
-    private int port=80;
+    private int port = 80;
     @Column(name = "resource_path")
     private String resourcePath;
 
     @Column(name = "website_name")
     private String websiteName;
 
-    public Integer getSiteId() {
+    public String getSiteId() {
         return siteId;
     }
 
-    public void setSiteId(Integer siteId) {
+    public void setSiteId(String siteId) {
         this.siteId = siteId;
     }
 

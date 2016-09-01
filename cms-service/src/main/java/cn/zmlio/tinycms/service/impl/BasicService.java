@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -16,6 +17,7 @@ import java.util.Map;
  * Created by ZML on 2016/8/28.
  */
 @Service(value = "basicService")
+@Transactional(readOnly = true)
 public class BasicService implements IBasicService {
 
     @Autowired
@@ -27,6 +29,7 @@ public class BasicService implements IBasicService {
     }
 
     @Override
+    @Transactional
     public <T> T merge(T bean) {
         return baseDao.merge(bean);
     }
@@ -37,31 +40,37 @@ public class BasicService implements IBasicService {
     }
 
     @Override
+    @Transactional
     public <T> Serializable save(T bean) {
         return baseDao.save(bean);
     }
 
     @Override
+    @Transactional
     public <T> void saveAll(Collection<T> entities) {
         baseDao.saveAll(entities);
     }
 
     @Override
+    @Transactional
     public <T> void update(T bean) {
         baseDao.update(bean);
     }
 
     @Override
+    @Transactional
     public <T> void delete(T object) {
         baseDao.delete(object);
     }
 
     @Override
+    @Transactional
     public <T> void delete(Class<T> tClass, Serializable id) {
         baseDao.delete(tClass, id);
     }
 
     @Override
+    @Transactional
     public <T> void deleteAll(Collection<T> entities) {
         baseDao.deleteAll(entities);
     }
@@ -87,6 +96,7 @@ public class BasicService implements IBasicService {
     }
 
     @Override
+    @Transactional
     public <T> void evict(T t) {
         baseDao.evict(t);
     }
