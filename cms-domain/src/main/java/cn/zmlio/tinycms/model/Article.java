@@ -1,5 +1,7 @@
 package cn.zmlio.tinycms.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -8,6 +10,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "cms_article")
+@Data
 public class Article {
 
     @Id
@@ -16,34 +19,10 @@ public class Article {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "meta_id")
-
     private ContentMeta meta;
 
     @Column(name = "content")
     @Lob
     private String content;//文章具体内容
 
-    public String getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(String articleId) {
-        this.articleId = articleId;
-    }
-
-    public ContentMeta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(ContentMeta meta) {
-        this.meta = meta;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }

@@ -1,5 +1,7 @@
 package cn.zmlio.tinycms.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -9,6 +11,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "cms_contentmeta")
+@Data
 public class ContentMeta {
 
     @Id
@@ -38,94 +41,7 @@ public class ContentMeta {
 
     private int opponent;//反对数
 
-    @OneToOne(mappedBy = "meta", cascade = CascadeType.MERGE)
+    @OneToOne(mappedBy = "meta", cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
     private Article article;
 
-    public String getMetaId() {
-        return metaId;
-    }
-
-    public void setMetaId(String metaId) {
-        this.metaId = metaId;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public int getAuditState() {
-        return auditState;
-    }
-
-    public void setAuditState(int auditState) {
-        this.auditState = auditState;
-    }
-
-    public Date getAuditTime() {
-        return auditTime;
-    }
-
-    public void setAuditTime(Date auditTime) {
-        this.auditTime = auditTime;
-    }
-
-    public int getSource() {
-        return source;
-    }
-
-    public void setSource(int source) {
-        this.source = source;
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String from) {
-        this.origin = from;
-    }
-
-    public int getReader() {
-        return reader;
-    }
-
-    public void setReader(int reader) {
-        this.reader = reader;
-    }
-
-    public int getFavour() {
-        return favour;
-    }
-
-    public void setFavour(int favour) {
-        this.favour = favour;
-    }
-
-    public int getOpponent() {
-        return opponent;
-    }
-
-    public void setOpponent(int opponent) {
-        this.opponent = opponent;
-    }
-
-    public Article getArticle() {
-        return article;
-    }
-
-    public void setArticle(Article article) {
-        this.article = article;
-    }
 }
