@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Created by ZML on 2016/10/16.
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class InitServiceTest {
     @Autowired
     InitService initService;

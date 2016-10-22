@@ -1,0 +1,95 @@
+{
+  "name": "zmlio-cms",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "zml"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.5.0",
+    "simple-line-icons": "^2.2.4",
+    "domReady": "requirejs-domready#^2.0.1",
+    "bluebird": "^3.3.5",
+    "jquery": "~1.12.3",
+    "html5shiv": "~3.7.3",
+    "respond": "~1.4.2",
+    "css3pie": "*"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "js": "dist/js/*.js",
+      "css": "dist/css/*.css",
+      "fonts": "dist/fonts/*"
+    },
+    "jquery": {
+      "": "dist/*min.js"
+    },
+    "font-awesome": {
+      "fonts": "fonts/*",
+      "css": "css/*"
+    },
+    "simple-line-icons": {
+      "fonts": "fonts/*",
+      "css": "css/*"
+    },
+    "html5shiv": {
+      "": "dist/*.min.js"
+    },
+    "respond": {
+      "": "dest/*.min.js"
+    },
+    "css3pie": {
+      "": "PIE.htc"
+    }
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/**"
+      ]
+    },
+    "css3pie": {
+      "main": [
+        "PIE.js",
+        "PIE.htc"
+      ]
+    },
+    "html5shiv": {
+      "main": [
+        "dist/*.min.js"
+      ]
+    },
+    "respond": {
+      "main": "dest/*.min.js"
+    },
+    "jquery": {
+      "main": "dist/*min.js"
+    },
+    "font-awesome": {
+      "main": [
+        "fonts/*",
+        "css/*"
+      ]
+    },
+    "simple-line-icons": {
+      "main": [
+        "fonts/*",
+        "css/*"
+      ]
+    }
+  },
+  "devDependencies": {
+    "require-css": "^0.1.8"
+  }
+}
