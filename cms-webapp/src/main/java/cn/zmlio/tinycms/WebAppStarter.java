@@ -13,9 +13,5 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan
 @SpringBootApplication
 public class WebAppStarter extends SpringBootServletInitializer {
-/*    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        builder.sources(WebAppStarter.class);
-        return super.configure(builder);
-    }*/
+
 }
