@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,18 +26,21 @@ public class InitServiceImpl implements InitService {
         //所有的restController
         String[] restControllers = context.getBeanNamesForAnnotation(RestController.class);
 
-        for (String beanName : ArrayUtils.addAll(controllerBeans,restControllers)) {
+        for (String beanName : ArrayUtils.addAll(controllerBeans, restControllers)) {
             Class clazz = context.getBean(beanName).getClass();
             RequestMapping mapping = context.getBean(beanName).getClass().getAnnotation(RequestMapping.class);
             String[] rootPaths = ArrayUtils.addAll(mapping.path(), mapping.value());
             String rootPath = rootPaths.length > 0 ? rootPaths[0] : null;
             Method[] methods = context.getBean(beanName).getClass().getDeclaredMethods();
-
+            log.info(rootPath);
             for (Method method : methods) {//遍历所有
-                RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
+               /* RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
+                GetMapping getMapping=method.getAnnotation(GetMapping.class);*/
+
                 //该controller下的路径
-                String[] subPaths = ArrayUtils.addAll(requestMapping.path(), requestMapping.value());
-                log.info(rootPath,subPaths);
+                //  String[] subPaths = requestMapping.path();
+                //  String[] subPaths = ArrayUtils.addAll(requestMapping.path(), requestMapping.value());
+                //log.info(rootPath, subPaths);
             }
         }
         return null;
