@@ -6,7 +6,7 @@
 -->
 <configuration status="OFF" monitorInterval="3000">
     <Properties>
-        <Property name="BASE_PATH">F:/logs/tinycms</Property>
+        <Property name="BASE_PATH">${sys:user.home}/workspace/logs/tinycms</Property>
     </Properties>
 
     <Appenders>

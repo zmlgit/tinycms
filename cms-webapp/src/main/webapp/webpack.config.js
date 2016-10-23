@@ -3,6 +3,12 @@ var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 //var ignoreFiles = new webpack.IgnorePlugin(/angular([\w.-]*).js$/);
 var path = require("path");
+
+var config = {
+    path: {
+        dist: path.join(__dirname, "../resources/static/dist/")
+    }
+}
 module.exports = {
     devtool: "source-map",
     //插件项
@@ -15,12 +21,12 @@ module.exports = {
     ],
 //页面入口文件配置
     entry: {
-        "index": './static/src/js/app.js'
+        "app": './static/js/app.js'
     },
 //入口文件输出配置
     output: {
         //libraryTarget: "commonjs",
-        path: path.join(__dirname, config.path.dist),
+        path: config.path.dist,
         // publicPath: './vendor/',
         filename: '[name].js'
     }
