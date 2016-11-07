@@ -90,6 +90,7 @@
     }
   },
   "devDependencies": {
-    "require-css": "^0.1.8"
+    "require-css": "^0.1.8",
+    "react": "^15.3.2"
   }
 }
