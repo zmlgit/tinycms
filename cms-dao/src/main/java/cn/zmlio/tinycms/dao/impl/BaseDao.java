@@ -1,12 +1,11 @@
 package cn.zmlio.tinycms.dao.impl;
 
 import cn.zmlio.tinycms.dao.IBaseDao;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -28,9 +27,8 @@ import java.util.Map;
  * Created by zhangmanliang on 2016/8/22.
  */
 @Repository("baseDao")
+@Slf4j
 public class BaseDao extends HibernateDaoSupport implements IBaseDao {
-
-    private static Logger logger = LoggerFactory.getLogger(BaseDao.class);
 
     @Resource
     public void setHibernateTemplate2(HibernateTemplate hibernateTemplate) {

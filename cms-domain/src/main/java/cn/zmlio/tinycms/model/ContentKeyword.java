@@ -1,5 +1,7 @@
 package cn.zmlio.tinycms.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -8,10 +10,8 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "cms_keyword")
-public class ContentKeyword {
-    @Id
-    @Column(name = "key_id",length = 40)
-    private String keyId= UUID.randomUUID().toString().toUpperCase();
+@Data
+public class ContentKeyword extends AbstractEntity{
 
     /**
      * 文章关键字
@@ -19,27 +19,4 @@ public class ContentKeyword {
     @Column(name = "keyword", length = 32, unique = true)
     private String keyword;
 
-    public String getKeyId() {
-        return keyId;
-    }
-
-    public void setKeyId(String keyId) {
-        this.keyId = keyId;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    @Override
-    public String toString() {
-        return "ContentKeyword{" +
-                "keyId=" + keyId +
-                ", keyword='" + keyword + '\'' +
-                '}';
-    }
 }
