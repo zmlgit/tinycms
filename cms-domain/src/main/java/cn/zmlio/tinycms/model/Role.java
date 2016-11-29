@@ -1,6 +1,7 @@
 package cn.zmlio.tinycms.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -11,8 +12,9 @@ import java.util.Set;
  * Created by zhangmanliang on 2016/8/25.
  */
 @Data
-@Entity
 @Table(name = "sys_role")
+@Entity
+@EqualsAndHashCode(callSuper = false)
 public class Role extends AbstractEntity {
 
     private String roleCode;
